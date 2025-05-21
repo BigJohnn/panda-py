@@ -81,7 +81,7 @@ Panda::Panda(std::string hostname, std::string name,
   py::gil_scoped_release release;
   robot_ = std::shared_ptr<franka::Robot>(
       new franka::Robot(hostname, realtime_config));
-  model_ = std::make_shared<franka::Model>(robot_->loadModel());
+  // model_ = std::make_shared<franka::Model>(robot_->loadModel());
   hostname_ = hostname;
   _log("info", "Connected to robot (%s).", hostname_);
   _setState(robot_->readOnce());

@@ -1,3 +1,14 @@
+```
+cmake -DCMAKE_BUILD_TYPE=Release -DBUILD_TESTS=OFF -DBUILD_EXAMPLES=OFF ..
+cmake --build . -j8
+cmake --install . --prefix ./install
+cpack -G DEB
+```
++ 不行就
+```
+pip install -e .
+```
+
 <div align="center"><img alt="panda-py Logo" src="https://raw.githubusercontent.com/JeanElsner/panda-py/main/logo.jpg" /></div>
 
 <h1 align="center">panda-py</h1>

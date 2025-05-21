@@ -1,8 +1,21 @@
 cmake_minimum_required(VERSION 3.15...3.25)
+
+set(CPACK_GENERATOR "DEB")
+set(CPACK_DEBIAN_PACKAGE_NAME "panda-py")
+set(CPACK_DEBIAN_PACKAGE_VERSION ${PROJECT_VERSION})
+set(CPACK_DEBIAN_PACKAGE_MAINTAINER "HIROL Maintainers <kjustdoitno1@gmail.com>")
+set(CPACK_DEBIAN_PACKAGE_DESCRIPTION "Franka Emika Panda Robot Python Interface")
+set(CPACK_DEBIAN_PACKAGE_DEPENDS "libfranka, python3")
+set(CPACK_TOPLEVEL_DIRECTORY "${CMAKE_BINARY_DIR}/cpack_temp")
+
 project(
   "panda_py"
-  LANGUAGES CXX)
-#  VERSION "${SKBUILD_PROJECT_VERSION}")
+  VERSION 0.0.1  # Set your project version here
+  LANGUAGES CXX
+)
+
+# Include CPack module and configure DEB settings
+include(CPack)
 
 set (CMAKE_CXX_STANDARD 17)
 set(CMAKE_BUILD_TYPE "Release")
@@ -71,4 +84,5 @@ target_include_directories(libfranka SYSTEM PUBLIC
 #target_compile_definitions(libfranka
 #  PRIVATE VERSION_INFO=${PROJECT_VERSION})
 
+install(TARGETS _core LIBRARY DESTINATION panda_py)
 install(TARGETS libfranka LIBRARY DESTINATION panda_py)
