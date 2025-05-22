@@ -3,9 +3,11 @@ cmake -DCMAKE_BUILD_TYPE=Release -DBUILD_TESTS=OFF -DBUILD_EXAMPLES=OFF ..
 cmake --build . -j8
 cmake --install . --prefix ./install
 cpack -G DEB
+sudo dpkg -i panda_py-0.0.1-Linux.deb
 ```
 + 不行就
 ```
+export CC=/usr/bin/gcc CXX=/usr/bin/g++
 pip install -e .
 ```
 

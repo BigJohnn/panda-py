@@ -10,7 +10,7 @@ set(CPACK_TOPLEVEL_DIRECTORY "${CMAKE_BINARY_DIR}/cpack_temp")
 
 project(
   "panda_py"
-  VERSION 0.0.1  # Set your project version here
+  VERSION 0.8.1  # Set your project version here
   LANGUAGES CXX
 )
 
@@ -57,7 +57,7 @@ target_link_libraries(_core PUBLIC
   Threads::Threads
   ${Franka_LIBRARIES}
 )
-
+include_directories(/usr/include/x86_64-linux-gnu) # for ubuntu 24.04
 target_include_directories(_core SYSTEM PUBLIC
   include
   ${EIGEN3_INCLUDE_DIRS}
